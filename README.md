@@ -9,7 +9,7 @@ An app for the casual houseplant enthusiast who both purchases and propagates pl
 # ERD
 ![ERD](images/ERD.png)
 # Components
-![Component](images/component.png)
+![Component](images/Component.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
