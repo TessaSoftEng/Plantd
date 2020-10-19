@@ -1,3 +1,16 @@
+# Plantd
+An app for the casual houseplant enthusiast who both purchases and propagates plants, and wants to keep track of those purchases and propagations.
+# Wireframe 
+![Login](images/login.png)
+![Profile](images/profile.png)
+![Forms](images/forms.png)
+![Form](images/form.png)
+![Detail](images/detailStretch.png)
+# ERD
+![ERD](images/ERD.png)
+# Components
+![Component](images/component.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

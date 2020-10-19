@@ -1,0 +1,110 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "tess@gmail.com",
+            "location": "Nashville",
+            "firstName": "Tess",
+            "lastName": "Steffen"
+        }
+    ],
+    "momPlant": [
+        {
+            "id": 1,
+            "userId": 1,
+            "plantTypeId": 1,
+            "momPlantImg": "",
+            "purchaseDate": "",
+            "amountPaid": "",
+            "potSizeId":"",
+            "leafCount":3,
+            "rooted": true 
+        }
+    ],
+    "childPlant": [
+        {
+            "id": 1,
+            "userId": 1,
+            "plantTypeId": 1,
+            "childPlantImg": "",
+            "momPlantId": "",
+            "dateSold": "",
+            "amountSold": "",
+            "potSizeId":"",
+            "leafCount":2,
+            "rooted": true 
+        }
+    ],
+    "plantTypes": [
+        {
+            "id": 1,
+            "type": "Monstera Deliciosa"
+        },
+        {
+            "id": 2,
+            "name": "Monstera Borsigiana Albo"
+        },
+        {
+            "id": 3,
+            "name": "ZZ"
+        },
+        {
+            "id": 4,
+            "type": "ZZ Raven"
+        },
+        {
+            "id": 5,
+            "name": "Syngonium Albo"
+        },
+        {
+            "id": 6,
+            "name": "Alocasia Polly"
+        }
+    ],
+    "potSizes": [
+        {
+            "id": 1,
+            "sizeInches": 4
+        },
+        {
+            "id": 2,
+            "size": 5
+        },
+        {
+            "id": 3,
+            "sizeInches": 7
+        },
+        {
+            "id": 4,
+            "size": 8.5
+        },
+        {
+            "id": 5,
+            "sizeInches": 10
+        },
+        {
+            "id": 6,
+            "size": 12
+        },
+        {
+            "id": 7,
+            "sizeInches": 14
+        },
+        {
+            "id": 8,
+            "size": 16
+        },
+        {
+            "id": 9,
+            "size": 18
+        },
+        {
+            "id": 10,
+            "sizeInches": 24
+        },
+        {
+            "id": 11,
+            "size": 30
+        }
+    ]
+}
