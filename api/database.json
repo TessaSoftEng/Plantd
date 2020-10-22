@@ -13,7 +13,7 @@
       "id": 2
     }
   ],
-  "momPlant": [
+  "momPlants": [
     {
       "id": 1,
       "userId": 1,
@@ -24,9 +24,20 @@
       "potSizeId": "",
       "leafCount": 3,
       "rooted": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "plantTypeId": 3,
+      "momPlantImg": "",
+      "purchaseDate": "",
+      "amountPaid": "",
+      "potSizeId": "",
+      "leafCount": 3,
+      "rooted": true
     }
   ],
-  "childPlant": [
+  "childPlants": [
     {
       "id": 1,
       "userId": 1,
