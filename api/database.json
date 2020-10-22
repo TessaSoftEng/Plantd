@@ -19,21 +19,13 @@
       "userId": 1,
       "plantTypeId": 1,
       "momPlantImg": "",
-      "purchaseDate": "",
-      "amountPaid": "",
-      "potSizeId": "",
+      "purchaseDate": "10-20-2020",
+      "amountPaid": "$40",
+      "potSizeId": 4,
       "leafCount": 3,
-      "rooted": true
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "plantTypeId": 3,
-      "momPlantImg": "",
-      "purchaseDate": "",
-      "amountPaid": "",
-      "potSizeId": "",
-      "leafCount": 3,
+      "sold": false,
+      "dateSold": "",
+      "amountSold": "",
       "rooted": true
     }
   ],

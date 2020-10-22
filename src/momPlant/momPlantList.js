@@ -20,14 +20,14 @@ export const MomPlantList = () => {
      return (	
        <>
         <Container className="bg-light overflow-auto h-15 border border-primary rounded-top">
+            <h2 className="text-primary">Mom Plants</h2> 
             <Button outline color="primary" className="float-right sticky-top" onClick={() => {history.push("/momPlants/create")}}>
                  Add Mom Plant
-             </Button>
-         <h2 className="text-primary">Mom Plants</h2> 
+            </Button>
         </Container>
         <Container className="bg-light overflow-auto h-50 border border-primary rounded-bottom border-top-0">
             {
-                momPlants.map(momPlant => {
+                momPlants?.map(momPlant => {
                     momPlants.sort(
                         (currentMomPlant, nextMomPlant) =>
                             Date.parse(nextMomPlant.date) - Date.parse(currentMomPlant.date)

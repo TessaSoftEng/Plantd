@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
 // Mom Plants
-// import { MomPlantList } from "./momPlant/momPlantList"
+import { MomPlantList } from "./momPlant/momPlantList"
 import { MomPlantProvider } from "./momPlant/momPlantProvider"
 import { MomPlantDetail } from "./momPlant/momPlantDetail"
 import { MomPlantForm } from "./momPlant/momPlantForm"
@@ -20,7 +20,7 @@ export const ApplicationViews = () => {
           <Route exact path="/">
                 <MomPlantProvider>
                     <Home />
-               
+                    <MomPlantList/>
                 </MomPlantProvider>
             </Route>
 

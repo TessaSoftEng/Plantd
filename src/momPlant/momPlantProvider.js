@@ -5,13 +5,14 @@ export const MomPlantContext = createContext()
 
 /*This component establishes what data can be used.*/
 export const MomPlantProvider = (props) => {
-    const [momPlants, setMomPlant] = useState([])
+    const [momPlants, setMomPlants] = useState([])
+    const activeUser = parseInt(localStorage.getItem("activeUser"))
 
 {/*Gets Mom Plant by Specified User Id */}
     const getMomPlant = () => {
-        return fetch("http://localhost:8088/momPlants?_expand=user")
+        return fetch(`http://localhost:8088/momPlants?userId=${activeUser}`)
             .then(res => res.json())
-            .then(setMomPlant)
+            .then(setMomPlants)
     }
 
     const getMomPlantById = (id) => {

@@ -67,10 +67,12 @@ const handleControlledInputChange = (event) => {
         <form className="momPlantForm">
         <h2 className="momPlantForm__title">{momPlantId ? <>Edit Mom Plant</> : <>New Mom Plant</>}</h2>
 
-{/*Input Field for Mom Plant Name*/}      
+{/*Input Field for Mom Plant TYPE*/}      
         <fieldset>
             <div className="form-group">
                 <label htmlFor="momPlantType">Plant Type: </label>
+                <select id="plantType-dropdown" name="plantTypeId" className="form-control"></select>
+                    <option value="">Select Plant Type</option>
                 <input type="text" id="plantTypeId" name="plantTypeId" required autoFocus className="form-control"
                     placeholder="Type of Plant"
                     onChange={handleControlledInputChange}
@@ -78,7 +80,7 @@ const handleControlledInputChange = (event) => {
             </div>
         </fieldset >
 
-{/*Input Field for Mom Plant Due Date*/}
+{/*Input Field for Mom Plant PURCHASE DATE*/}
         <fieldset>
             <div className="form-group">
                 <label htmlFor="momPlantPurchaseDate">Purchase Date:</label>
@@ -88,6 +90,86 @@ const handleControlledInputChange = (event) => {
                     defaultValue={momPlant.purchaseDate} />
             </div>
         </fieldset>
+
+{/*Input Field for Mom Plant AMOUNT PAID*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantAmountPaid">Amount Paid: </label>
+                <input type="text" id="amountPaid" name="amountPaid" required autoFocus className="form-control"
+                    placeholder="Amount Paid for Plant"
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.amountPaid} />
+            </div>
+        </fieldset >
+
+
+{/*Input Field for Mom Plant LEAF COUNT*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantLeafCount">Leaf Count: </label>
+                <input type="text" id="leafCount" name="leafCount" required autoFocus className="form-control"
+                    placeholder="# of Leafs"
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.leafCount} />
+            </div>
+        </fieldset >
+
+{/*Input Field for Mom Plant POT SIZE*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantLeafCount">Pot Size: </label>
+                <select id="potSize-dropdown" name="potSize" className="form-control"></select>
+                    <option value="">Select Pot Size</option>
+                <input type="text" id="potSizeId" name="potSizeId" required autoFocus className="form-control"
+                    placeholder="Size of Pot"
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.potSizeId} />
+            </div>
+        </fieldset >
+
+{/*Input Field for Mom Plant SOLD?*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantSold">Sold? </label>
+                <input type="checkbox" id="sold" name="sold" required autoFocus className="form-control"
+                    placeholder=""
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.sold} />
+            </div>
+        </fieldset >
+
+{/*Input Field for Mom Plant SOLD DATE*/}
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantSoldDate">Sold Date:</label>
+                <input type="date" id="dateSold" name="dateSold" required autoFocus className="form-control"
+                    placeholder="Date Sold"
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.soldDate} />
+            </div>
+        </fieldset>
+
+{/*Input Field for Mom Plant SOLD AMOUNT*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantSoldAmount">Sold For: </label>
+                <input type="text" id="amountSold" name="amountSold" required autoFocus className="form-control"
+                    placeholder="Amount Sold For"
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.amountSold} />
+            </div>
+        </fieldset >
+
+{/*Input Field for Mom Plant ROOTED?e*/}      
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="momPlantSold">Rooted? </label>
+                <input type="checkbox" id="rooted" name="rooted" required autoFocus className="form-control"
+                    placeholder=""
+                    onChange={handleControlledInputChange}
+                    defaultValue={momPlant.rooted} />
+            </div>
+        </fieldset >
 
 {/*Button to Save or Add New or Edited Mom Plant*/}
         <button className="btn btn-primary"

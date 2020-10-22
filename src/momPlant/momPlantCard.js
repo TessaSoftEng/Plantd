@@ -6,6 +6,7 @@ import { Card, CardBody, CardTitle, CardText, CardHeader, Container, Row, Col, L
 
 export const MomPlantCard = ({ momPlant }) => {
 const [isChecked, setIsChecked] = useState(false);
+const [plantType, setPlantType] = useState({})
 
     return ( 
  
@@ -13,17 +14,21 @@ const [isChecked, setIsChecked] = useState(false);
       <Card className="rounded bg-light clearfix">
             <CardHeader className="bg-primary">
         <Container>
-                <Link className="text-light" to={`/momPlant/detail/${momPlant.id}`}>
+                {/* <Link className="text-light" to={`/momPlant/detail/${momPlant.id}`}> */}
                     <Col><CardTitle className="momPlantName">{momPlant.plantTypeId}</CardTitle></Col>
-                </Link>
+                {/* </Link> */}
         </Container>
     </CardHeader>
     <CardBody>  
               <ListGroup>
-                  <ListGroupItem>{momPlant.purchaseDate}</ListGroupItem>
-                  <ListGroupItem>{momPlant.amountPaid}</ListGroupItem>
-                  <ListGroupItem>{momPlant.potSizeId}</ListGroupItem>
-                  <ListGroupItem>{momPlant.leafCount}</ListGroupItem>
+                  <ListGroupItem>Purchase Date: {momPlant.purchaseDate}</ListGroupItem>
+                  <ListGroupItem>Amount Paid: {momPlant.amountPaid}</ListGroupItem>
+                  <ListGroupItem>Pot Size: {momPlant.potSizeId}</ListGroupItem>
+                  <ListGroupItem>Leaf Count: {momPlant.leafCount}</ListGroupItem>
+                  <ListGroupItem>Sold: {momPlant.sold}</ListGroupItem>
+                  <ListGroupItem>Date Sold: {momPlant.dateSold}</ListGroupItem>
+                  <ListGroupItem>Amount Sold: {momPlant.amountSold}</ListGroupItem>
+                  <ListGroupItem>Rooted: {momPlant.rooted}</ListGroupItem>
               </ListGroup>
     </CardBody>
     </Card> 
