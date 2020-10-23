@@ -5,7 +5,7 @@ An app for the casual houseplant enthusiast who both purchases and propagates pl
 ![Profile](images/profile.png)
 ![Forms](images/forms.png)
 ![Form](images/form.png)
-![Detail](images/detailStretch.png)
+
 # ERD
 ![ERD](images/ERD.png)
 # Components

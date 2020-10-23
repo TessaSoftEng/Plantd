@@ -1,11 +1,11 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
-//Mom Plants//
-// import { momPlantList } from "./momPlant/momPlantList"
-// import { momPlantProvider } from "./momPlant/momPlantProvider"
-// import { momPlantDetail } from "./momPlant/momPlantDetail"
-// import { momPlantForm } from "./momPlant/momPlantForm"
+// Mom Plants
+import { MomPlantList } from "./momPlant/momPlantList"
+import { MomPlantProvider } from "./momPlant/momPlantProvider"
+import { MomPlantDetail } from "./momPlant/momPlantDetail"
+import { MomPlantForm } from "./momPlant/momPlantForm"
 
 //Child Plants//
 // import { childPlantProvider } from "./childPlant/childPlantProvider";
@@ -17,62 +17,38 @@ import { Home } from "./Home"
 export const ApplicationViews = () => {
     return (
         <>
-
-            <Route exact path="/">
-                <Home />
+          <Route exact path="/">
+                <MomPlantProvider>
+                    <Home />
+                    <MomPlantList/>
+                </MomPlantProvider>
             </Route>
 
 
-            {/* <ChatProvider>
-                <TaskProvider>
-                    <ArticleProvider>
-                        <EventProvider>
-                            <Route exact path="/">
-                                <Container>
-                                    <Row><Home /></Row>
-                                    <Row>
-                                        <Col xs="6 pt-5"><TaskList /></Col>
-
-                                        <Col xs="6 pt-5"><ArticleList /></Col>
-                                    </Row>
-
-                                    <Row>
-                                        <Col xs="6"><EventList /></Col>
-                                        <Col xs="6"><ChatList />
-                                            <ChatForm /></Col>
-                                    </Row>
-                                </Container>
-                            </Route>
-                        </EventProvider>
-                    </ArticleProvider>
-                </TaskProvider>
-            </ChatProvider>
-            {/* Render the location list when http://localhost:3000/ */}
-
-
-            {/* Render Task Dropdown Details */}
-            {/* <TaskProvider>
-                <Route exact path="/tasks/detail/:taskId(\d+)">
+            {/* Render Mom Plant Dropdown Details */}
+            <MomPlantProvider>
+                <Route exact path="/momPlants/detail/:momPlantId(\d+)">
                     <Home />
-                    <TaskDetail />
+                    <MomPlantDetail />
                 </Route>
-            </TaskProvider> */}
+            </MomPlantProvider>
 
-            {/*Render Task Form */}
-            {/* <TaskProvider>
-                <Route exact path="/tasks/create">
+            {/*Render Mom Plant Form */}
+            <MomPlantProvider>
+                <Route exact path="/momPlants/create">
                     <Home />
-                    <TaskForm />
+                    <MomPlantForm />
                 </Route>
-            </TaskProvider> */}
+            </MomPlantProvider>
 
-            {/*Render the Edit Task */}
-            {/* <TaskProvider>
-                <Route exact path="/tasks/edit/:taskId(\d+)">
+            {/*Render the Edit Mom Plant */}
+           <MomPlantProvider>
+                <Route exact path="/momPlants/edit/:momPlantId(\d+)">
                     <Home />
-                    <TaskForm />
+                    <MomPlantForm />
                 </Route>
-            </TaskProvider> */} 
+            </MomPlantProvider>
+  
      </>
     )
 }
