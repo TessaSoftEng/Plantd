@@ -15,7 +15,7 @@ const [plantType, setPlantType] = useState({})
             <CardHeader className="bg-primary">
         <Container>
                 {/* <Link className="text-light" to={`/momPlant/detail/${momPlant.id}`}> */}
-                    <Col><CardTitle className="momPlantName">{momPlant.plantTypeId}</CardTitle></Col>
+                    <Col><CardTitle className="momPlantName">{momPlant.plantType}</CardTitle></Col>
                 {/* </Link> */}
         </Container>
     </CardHeader>

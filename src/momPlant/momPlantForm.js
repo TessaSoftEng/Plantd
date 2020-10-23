@@ -11,6 +11,7 @@ export const MomPlantForm = () => {
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(true);
     const { momPlantId } = useParams();
+    const {plantType, getPlantType} = useState()
     const history = useHistory();
 
 {/*Sets the edited Mom Plant to update with state*/}
@@ -25,6 +26,7 @@ const handleControlledInputChange = (event) => {
 
 {/*Get Mom Plant by Id*/}
     useEffect(() => {
+        
         if (momPlantId){
             getMomPlantById(momPlantId)
                 .then(momPlant => {
@@ -38,21 +40,39 @@ const handleControlledInputChange = (event) => {
 
 {/*Render a Create new Mom Plant*/}
     const constructMomPlantObj = () => {
+        // if(parseInt(momPlant.plantTypeId)===0){
+        //     window.alert("Please Select a Plant Type")
+        // }else{}
         //Stops additional clicks on button by disabling
         setIsLoading(true);
+
         if (momPlantId) {
             updateMomPlant({
                 id: momPlant.id,
-                plantTypeId: momPlant.plantTypeId,
+                userId: parseInt(localStorage.activeUser),
+                plantTypeId: parseInt(momPlant.plantTypeId),
                 purchaseDate: momPlant.purchaseDate,
-                userId: parseInt(localStorage.nutshell_user)
+                amountPaid: momPlant.amountPaid,
+                leafCount: momPlant.leafCount,
+                potSize: parseInt(momPlant.potSizeId),
+                sold: momPlant.sold,
+                dateSold: momPlant.dateSold,
+                amountSold: momPlant.amountSold,
+                rooted: momPlant.rooted
             })
                 .then(() => history.push(`/momPlant/detail/${momPlant.id}`))
         } else {
             addMomPlant({
-                plantTypes: momPlant.plantTypeId,
+                userId: parseInt(localStorage.activeUser),
+                plantTypeId: momPlant.plantTypeId,
                 purchaseDate: momPlant.purchaseDate,
-                userId: parseInt(localStorage.activeUser)
+                amountPaid: momPlant.amountPaid,
+                leafCount: momPlant.leafCount,
+                potSizeId: parseInt(momPlant.potSizeId),
+                sold: momPlant.sold,
+                dateSold: momPlant.dateSold,
+                amountSold: momPlant.amountSold,
+                rooted: momPlant.rooted
             })
                 .then(() => history.push("/"))
         }
@@ -63,6 +83,7 @@ const handleControlledInputChange = (event) => {
         history.push("/")
     }
 
+   
     return (
         <form className="momPlantForm">
         <h2 className="momPlantForm__title">{momPlantId ? <>Edit Mom Plant</> : <>New Mom Plant</>}</h2>
