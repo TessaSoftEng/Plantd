@@ -11,6 +11,7 @@ const [plantType, setPlantType] = useState({})
     return ( 
  
     <section className="momPlantListContainer">
+
       <Card className="rounded bg-light clearfix">
             <CardHeader className="bg-primary">
         <Container>
@@ -20,6 +21,7 @@ const [plantType, setPlantType] = useState({})
         </Container>
     </CardHeader>
     <CardBody>  
+  
               <ListGroup>
                   <ListGroupItem>Purchase Date: {momPlant.purchaseDate}</ListGroupItem>
                   <ListGroupItem>Amount Paid: {momPlant.amountPaid}</ListGroupItem>
@@ -30,8 +32,10 @@ const [plantType, setPlantType] = useState({})
                   <ListGroupItem>Amount Sold: {momPlant.amountSold}</ListGroupItem>
                   <ListGroupItem>Rooted: {momPlant.rooted}</ListGroupItem>
               </ListGroup>
+  
     </CardBody>
     </Card> 
+
     </section>
 
     )

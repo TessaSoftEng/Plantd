@@ -92,8 +92,16 @@ const handleControlledInputChange = (event) => {
         <fieldset>
             <div className="form-group">
                 <label htmlFor="momPlantType">Plant Type: </label>
-                <select id="plantType-dropdown" name="plantTypeId" className="form-control"></select>
-                    <option value="">Select Plant Type</option>
+                <select id="dropdown" name="plantTypeId" className="form-control">
+                    <option value="0">Select Plant Type</option>
+                    ${
+                        momPlant.plantType.map(momPlantObj => {
+                            return `
+                            <option value="${momPlantObj.plantType.type}">${momPlantObj.plantType.type}</option>
+                            `
+                        }).join("")
+                    }
+                </select>
                 <input type="text" id="plantTypeId" name="plantTypeId" required autoFocus className="form-control"
                     placeholder="Type of Plant"
                     onChange={handleControlledInputChange}

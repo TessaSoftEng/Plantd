@@ -1,38 +1,42 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { Card, CardBody, CardTitle, CardText, CardHeader, Container, Row, Col } from "reactstrap"
+import { Card, CardBody, CardTitle, CardText, CardHeader, Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap"
 
-/*Purpose: To render a single task as an HTML representation of the data.*/
+/*Purpose: To render a single Child Plant as an HTML representation of the data.*/
 
-export const TaskCard = ({ task }) => {
-    const [isChecked, setIsChecked] = useState(false);
-
+export const ChildPlantCard = ({ childPlant }) => {
+const [isChecked, setIsChecked] = useState(false);
+const [plantType, setPlantType] = useState({})
 
     return ( 
  
-    <section className="taskListContainer">
+    <section className="childPlantListContainer">
+
       <Card className="rounded bg-light clearfix">
             <CardHeader className="bg-primary">
         <Container>
-            <Row>
-                <Col><input className="fixed-right"
-                    type="checkbox" 
-                    checked={isChecked}
-                    onChange={(e) => setIsChecked(e.target.checked)}
-                />
-                </Col>
-                <Link className="text-light" to={`/tasks/detail/${task.id}`}>
-                    <Col><CardTitle className="taskName">{task.taskName}</CardTitle></Col>
-                </Link>
-            </Row>
+                {/* <Link className="text-light" to={`/childPlant/detail/${childPlant.id}`}> */}
+                    <Col><CardTitle className="childPlantName">{childPlant.plantType}</CardTitle></Col>
+                {/* </Link> */}
         </Container>
     </CardHeader>
     <CardBody>  
-        <CardText>Due Date: {task.due}</CardText>
+  
+              <ListGroup>
+                  <ListGroupItem>Purchase Date: {childPlant.purchaseDate}</ListGroupItem>
+                  <ListGroupItem>Amount Paid: {childPlant.amountPaid}</ListGroupItem>
+                  <ListGroupItem>Pot Size: {childPlant.potSizeId}</ListGroupItem>
+                  <ListGroupItem>Leaf Count: {childPlant.leafCount}</ListGroupItem>
+                  <ListGroupItem>Sold: {childPlant.sold}</ListGroupItem>
+                  <ListGroupItem>Date Sold: {childPlant.dateSold}</ListGroupItem>
+                  <ListGroupItem>Amount Sold: {childPlant.amountSold}</ListGroupItem>
+                  <ListGroupItem>Rooted: {childPlant.rooted}</ListGroupItem>
+              </ListGroup>
+  
     </CardBody>
     </Card> 
+
     </section>
 
     )
 }
-       
