@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { ChildPlantContext } from "./childPlantProvider"
 import "./childPlant.css"
 import { useParams, useHistory } from "react-router-dom"
-import { Button, Container, Card, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 export const ChildPlantDetail = () => {
     const { removeChildPlant, getChildPlantById } = useContext(ChildPlantContext)
@@ -23,41 +23,40 @@ export const ChildPlantDetail = () => {
 	}
 
     return (
-        <Container>
-            <Card body inverse color="primary">
-                <CardTitle>Plant Type:{childPlant?.plantType.type}</CardTitle>
-                <CardTitle>Purchase Due:{childPlant?.purchaseDate}</CardTitle>
-			</Card>
-            <div className="form__buttons">
+        <section className="childPlant">
+            {/* <h3 className="childPlant__name">Plant Type:{childPlant?.plantTypeId}</h3>
+            <div className="childPlant__purchaseDate">Purchase Due:{childPlant?.purchaseDate}</div> */}
+			<div className="form__buttons">
 				{childPlant?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
 				<>
 		{/*Remove Child Plant Button*/}		
-				<Button onClick={
+				<button onClick={
 					() => {
 						removeChildPlant(childPlant.id)
 							.then(() => {
 								history.push("/")
 							})
 					}}>Remove Child Plant
-				</Button> 
+				</button> 
 
 		{/*Edit Child Plant Button*/}
-			<Button onClick={
+			<button onClick={
 				() => {
 					history.push(`/childPlant/edit/${childPlant.id}`)
 				}}>Edit
-			</Button>
+			</button>
 			</>
 			: null}
 
 		{/*Cancel or Close Edit Form for Child Plant Button*/}
-			<Button className="btn btn-primary"
+			<button className="btn btn-primary"
 					onClick={event => {
 						event.preventDefault()
 						Cancel()
 					}}>X
-			</Button>
+			</button>
+
 			</div>
-        </Container>
+        </section>
     )
 }

@@ -1,56 +1,62 @@
+//responsible for showing all the details of the childPlant//
 import React, { useContext, useEffect, useState } from "react"
-import { UserContext } from "./userProvider"
+import { ChildPlantContext } from "./childPlantProvider"
+import "./childPlant.css"
 import { useParams, useHistory } from "react-router-dom"
-import { Button, Container, Card, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 
-export const UserDetail = () => {
-	const { removeUser, getUserById } = useContext(UserContext)
-	const [user, setUser] = useState({})
-	const { userId } = useParams();
+export const ChildPlantDetail = () => {
+    const { removeChildPlant, getChildPlantById } = useContext(ChildPlantContext)
+	const [childPlant, setChildPlant] = useState({})
+	const {childPlantId} = useParams();
 	const history = useHistory();
-	useEffect(() => {
-		getUserById(userId)
-			.then((response) => {
-				setUser(response)
-			})
-	}, [])
+
+    useEffect(() => {
+        getChildPlantById(childPlantId)
+        .then((response) => {
+			setChildPlant(response)
+		})
+}, [])
+
 	const Cancel = () => {
 		history.push("/")
 	}
-	return (
-		<Container>
-			<Card body inverse color="primary">
-				<CardTitle>{user?.firstName}</CardTitle>
-				<CardTitle>Due: {user?.due}</CardTitle>
-			</Card>
+
+    return (
+        <section className="childPlant">
+            {/* <h3 className="childPlant__name">Plant Type:{childPlant?.plantTypeId}</h3>
+            <div className="childPlant__purchaseDate">Purchase Due:{childPlant?.purchaseDate}</div> */}
 			<div className="form__buttons">
-				{user?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
-					<>
-						{/*Remove User Button*/}
-						<Button onClick={
-							() => {
-								removeUser(user.id)
-									.then(() => {
-										history.push("/")
-									})
-							}}>Remove User
-                </Button>
-						{/*Edit User Button*/}
-						<Button onClick={
-							() => {
-								history.push(`/users/edit/${user.id}`)
-							}}>Edit
-            </Button>
-					</>
-					: null}
-				{/*Cancel or Close Edit User Button*/}
-				<Button className="btn btn-primary"
+				{childPlant?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
+				<>
+		{/*Remove Child Plant Button*/}		
+				<button onClick={
+					() => {
+						removeChildPlant(childPlant.id)
+							.then(() => {
+								history.push("/")
+							})
+					}}>Remove Child Plant
+				</button> 
+
+		{/*Edit Child Plant Button*/}
+			<button onClick={
+				() => {
+					history.push(`/childPlant/edit/${childPlant.id}`)
+				}}>Edit
+			</button>
+			</>
+			: null}
+
+		{/*Cancel or Close Edit Form for Child Plant Button*/}
+			<button className="btn btn-primary"
 					onClick={event => {
 						event.preventDefault()
 						Cancel()
 					}}>X
-            </Button>
+			</button>
+
 			</div>
-		</Container>
-	)
+        </section>
+    )
 }

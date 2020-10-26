@@ -24,8 +24,8 @@ export const MomPlantDetail = () => {
 
     return (
         <section className="momPlant">
-            <h3 className="momPlant__name">Plant Type:{momPlant?.plantTypeId}</h3>
-            <div className="momPlant__purchaseDate">Purchase Due:{momPlant?.purchaseDate}</div>
+            {/* <h3 className="momPlant__name">Plant Type:{momPlant?.plantTypeId}</h3>
+            <div className="momPlant__purchaseDate">Purchase Due:{momPlant?.purchaseDate}</div> */}
 			<div className="form__buttons">
 				{momPlant?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
 				<>

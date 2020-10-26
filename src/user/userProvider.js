@@ -5,11 +5,12 @@ export const UserContext = createContext()
 
 /*This component establishes what data can be used.*/
 export const UserProvider = (props) => {
-    const [users, setUser] = useState([])
+    const [user, setUser] = useState([])
+    const activeUser = parseInt(localStorage.getItem("activeUser"))
 
-{/*Gets Users by Specified User Id */}
+{/*Gets User Plant by Specified User Id */}
     const getUser = () => {
-        return fetch("http://localhost:8088/users?_expand=user")
+        return fetch(`http://localhost:8088/users?userId=${activeUser}`)
             .then(res => res.json())
             .then(setUser)
     }
@@ -19,8 +20,26 @@ export const UserProvider = (props) => {
             .then(res => res.json())
     }
 
+    const addUser = user => {
+        return fetch("http://localhost:8088/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        .then(getUser) //This refreshes the list with new child plants//
+    }
 
-{/*Edit Users by Specified Id */}
+{/*Deletes or removes Child Plants by Specified Id */}
+    const removeUser = userId => {
+        return fetch(`http://localhost:8088/users/${userId}`, {
+            method: "DELETE"
+        })
+            .then(getUser)
+    }
+
+{/*Edit Child Plants by Specified Id */}
     const updateUser = user => {
         return fetch(`http://localhost:8088/users/${user.id}`, {
             method: "PUT",
@@ -33,16 +52,15 @@ export const UserProvider = (props) => {
     }
     /*
         You return a context provider which has the
-        `users` state, the `addUser` function,
+        `user` state, the `addUser` function,
         and the `getUser` function as keys. This
         allows any child elements to access them.
     */
     return (
         <UserContext.Provider value={{
-           users, getUser, getUserById, updateUser
+            user, addUser, getUser, getUserById, removeUser, updateUser
         }}>
             {props.children}
         </UserContext.Provider>
     )
 }
-
