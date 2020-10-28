@@ -1,20 +1,20 @@
 //responsible for showing all the details of the childPlant//
 import React, { useContext, useEffect, useState } from "react"
-import { ChildPlantContext } from "./childPlantProvider"
-import "./childPlant.css"
+import { UserContext } from "./userProvider"
+// import "./childPlant.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button } from 'reactstrap';
 
-export const ChildPlantDetail = () => {
-    const { removeChildPlant, getChildPlantById } = useContext(ChildPlantContext)
-	const [childPlant, setChildPlant] = useState({})
-	const {childPlantId} = useParams();
+export const UserDetail = () => {
+    const { removeUser, getUserById } = useContext(UserContext)
+	const [user, setUser] = useState({})
+	const {userId} = useParams();
 	const history = useHistory();
 
     useEffect(() => {
-        getChildPlantById(childPlantId)
+        getUserById(userId)
         .then((response) => {
-			setChildPlant(response)
+			setUser(response)
 		})
 }, [])
 
@@ -23,32 +23,23 @@ export const ChildPlantDetail = () => {
 	}
 
     return (
-        <section className="childPlant">
+        <section className="userDetail">
             {/* <h3 className="childPlant__name">Plant Type:{childPlant?.plantTypeId}</h3>
             <div className="childPlant__purchaseDate">Purchase Due:{childPlant?.purchaseDate}</div> */}
 			<div className="form__buttons">
-				{childPlant?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
+				{user?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
 				<>
-		{/*Remove Child Plant Button*/}		
-				<button onClick={
-					() => {
-						removeChildPlant(childPlant.id)
-							.then(() => {
-								history.push("/")
-							})
-					}}>Remove Child Plant
-				</button> 
 
-		{/*Edit Child Plant Button*/}
+		{/*Edit User Button*/}
 			<button onClick={
 				() => {
-					history.push(`/childPlant/edit/${childPlant.id}`)
+					history.push(`/user/edit/${user.id}`)
 				}}>Edit
 			</button>
 			</>
 			: null}
 
-		{/*Cancel or Close Edit Form for Child Plant Button*/}
+		{/*Cancel or Close Edit Form for User Button*/}
 			<button className="btn btn-primary"
 					onClick={event => {
 						event.preventDefault()

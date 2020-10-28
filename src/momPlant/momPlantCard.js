@@ -21,13 +21,28 @@ export const MomPlantCard = ({ momPlant, removeMomPlant }) => {
                     <Container>
                         {/* <Link className="text-light" to={`/momPlant/detail/${momPlant.id}`}> */}
                         <Col>
-                            <CardTitle className="momPlantName">{momPlant.plantType}</CardTitle>
+                            <CardTitle className="momPlantName">{momPlant.plantTypeId}</CardTitle>
                         </Col>
                         {/* </Link> */}
                     </Container>
                 </CardHeader>
+
                 <CardBody>
+
+                    <ListGroup>
+                        <ListGroupItem>Purchase Date: {momPlant.purchaseDate}</ListGroupItem>
+                        <ListGroupItem>Amount Paid: {momPlant.amountPaid}</ListGroupItem>
+                        <ListGroupItem>Pot Size: {momPlant.potSizeId}</ListGroupItem>
+                        <ListGroupItem>Leaf Count: {momPlant.leafCount}</ListGroupItem>
+                        <ListGroupItem>Sold: {momPlant.sold}</ListGroupItem>
+                        <ListGroupItem>Date Sold: {momPlant.dateSold}</ListGroupItem>
+                        <ListGroupItem>Amount Sold: {momPlant.amountSold}</ListGroupItem>
+                        <ListGroupItem>Rooted: {momPlant.rooted}</ListGroupItem>
+                    </ListGroup>
+                </CardBody>
+
                     <div className="form__buttons">
+                        
                         {/*Remove Mom Plant Button*/}
                         <Button
                             onClick={() => {
@@ -41,23 +56,12 @@ export const MomPlantCard = ({ momPlant, removeMomPlant }) => {
                         {/*Edit Mom Plant Button*/}
                         <Button
                             onClick={() => {
-                                history.push(`/momPlant/edit/${momPlant.id}`);
+                                history.push(`/momPlants/edit/${momPlant.id}`);
                             }}>
                             Edit
                         </Button>
                     </div>
 
-                    <ListGroup>
-                        <ListGroupItem>Purchase Date: {momPlant.purchaseDate}</ListGroupItem>
-                        <ListGroupItem>Amount Paid: {momPlant.amountPaid}</ListGroupItem>
-                        <ListGroupItem>Pot Size: {momPlant.potSizeId}</ListGroupItem>
-                        <ListGroupItem>Leaf Count: {momPlant.leafCount}</ListGroupItem>
-                        <ListGroupItem>Sold: {momPlant.sold}</ListGroupItem>
-                        <ListGroupItem>Date Sold: {momPlant.dateSold}</ListGroupItem>
-                        <ListGroupItem>Amount Sold: {momPlant.amountSold}</ListGroupItem>
-                        <ListGroupItem>Rooted: {momPlant.rooted}</ListGroupItem>
-                    </ListGroup>
-                </CardBody>
             </Card>
         </section>
     );

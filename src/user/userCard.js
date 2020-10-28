@@ -4,9 +4,7 @@ import {Card, CardBody, CardTitle, CardText, CardHeader, Container, Row, Col, Li
 
 /*Purpose: To render a single Child Plant as an HTML representation of the data.*/
 
-export const ChildPlantCard = ({ childPlant, removeChildPlant }) => {
-    const [isChecked, setIsChecked] = useState(false);
-    const [plantType, setPlantType] = useState({});
+export const UserCard = ({ user }) => {
 
     const Cancel = () => {
         history.push('/');
@@ -15,43 +13,30 @@ export const ChildPlantCard = ({ childPlant, removeChildPlant }) => {
     const history = useHistory();
 
     return (
-        <section className="childPlantListContainer">
+        <section className="userCardContainer">
+
             <Card className="rounded bg-light clearfix">
                 <CardHeader className="bg-primary">
                     <Container>
-                        {/* <Link className="text-light" to={`/childPlant/detail/${childPlant.id}`}> */}
                         <Col>
-                            <CardTitle className="childPlantName">{childPlant.plantType}</CardTitle>
+                            <CardTitle></CardTitle>
                         </Col>
-                        {/* </Link> */}
-                    </Container>
+                    </Container>  
                 </CardHeader>
-                <CardBody>
 
+                <CardBody>
+                    
                     <ListGroup>
-                        <ListGroupItem>Pot Size: {childPlant.potSizeId}</ListGroupItem>
-                        <ListGroupItem>Leaf Count: {childPlant.leafCount}</ListGroupItem>
-                        <ListGroupItem>Date Sold: {childPlant.dateSold}</ListGroupItem>
-                        <ListGroupItem>Amount Sold: {childPlant.amountSold}</ListGroupItem>
-                        <ListGroupItem>Rooted: {childPlant.rooted}</ListGroupItem>
+                        <ListGroupItem>{user.firstName} {user.lastName}</ListGroupItem>
+                        <ListGroupItem>{user.email}</ListGroupItem>
                     </ListGroup>
 
                     <div className="form__buttons">
 
-                    {/*Remove Child Plant Button*/}
+                    {/*Edit User Button*/}
                     <Button
                         onClick={() => {
-                            removeChildPlant(childPlant.id).then(() => {
-                                history.push('/');
-                            });
-                        }}>
-                        Remove Child Plant
-                    </Button>
-
-                    {/*Edit Child Plant Button*/}
-                    <Button
-                        onClick={() => {
-                            history.push(`/childPlant/edit/${childPlant.id}`);
+                            history.push(`/users/edit/${user.id}`);
                         }}>
                         Edit
                     </Button>

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../user/userProvider';
-import './user.css';
+// import './user.css';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 export const UserForm = () => {
     const { addUser, getUserById, updateUser } = useContext(UserContext);
     //for edit, hold on to state of User in this view
-    const [user, setUserPlant] = useState({});
-    const [userTypesArray, setUserTypesArray] = useState([]);
+    const [user, setUser] = useState({});
+    const [userArray, setUserArray] = useState([]);
  
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(true);
@@ -88,104 +88,74 @@ export const UserForm = () => {
             <h2 className="userForm__title">{userId ? <>Edit User</> : <>New User</>}</h2>
 
 
-            {/*Input Field for Child Plant LEAF COUNT*/}
+            {/*Input Field for User FIRST NAME*/}
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="childPlantLeafCount">Leaf Count: </label>
+                    <label htmlFor="userFirstName">First Name: </label>
                     <input
                         type="text"
-                        id="leafCount"
-                        name="leafCount"
+                        id="firstName"
+                        name="firstName"
                         required
                         autoFocus
                         className="form-control"
-                        placeholder="# of Leafs"
+                        placeholder="First Name"
                         onChange={handleControlledInputChange}
-                        defaultValue={childPlant.leafCount}
+                        defaultValue={user.firstName}
                     />
                 </div>
             </fieldset>
 
-            {/*Input Field for Child Plant POT SIZE*/}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="childPlantLeafCount">Pot Size: </label>
-                    <select id="potSize-dropdown" name="potSize" className="form-control">
-                        <option value="">Select Pot Size</option>
-                        {potSizeArray.map((potSizeItem) => {
-                            return <option value={potSizeItem.id}>{`${potSizeItem.sizeInches} inches`}</option>;
-                        })}
-                    </select>
-                </div>
-            </fieldset>
 
-            {/*Input Field for Child Plant SOLD DATE*/}
+            {/*Input Field for User LAST NAME*/}
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="childPlantSoldDate">Sold Date:</label>
-                    <input
-                        type="date"
-                        id="dateSold"
-                        name="dateSold"
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="Date Sold"
-                        onChange={handleControlledInputChange}
-                        defaultValue={childPlant.soldDate}
-                    />
-                </div>
-            </fieldset>
-
-            {/*Input Field for Child Plant SOLD AMOUNT*/}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="childPlantSoldAmount">Sold For: </label>
+                    <label htmlFor="userLastName">Last Name:</label>
                     <input
                         type="text"
-                        id="amountSold"
-                        name="amountSold"
+                        id="lastName"
+                        name="lastName"
                         required
                         autoFocus
                         className="form-control"
-                        placeholder="Amount Sold For"
+                        placeholder="Last Name"
                         onChange={handleControlledInputChange}
-                        defaultValue={childPlant.amountSold}
+                        defaultValue={user.lastName}
                     />
                 </div>
             </fieldset>
 
-            {/*Input Field for Child Plant ROOTED?e*/}
+            {/*Input Field for User EMAIL*/}
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="childPlantSold">Rooted? </label>
+                    <label htmlFor="userEmail">Email: </label>
                     <input
-                        type="checkbox"
-                        id="rooted"
-                        name="rooted"
-                        checked={isRooted}
+                        type="text"
+                        id="email"
+                        name="email"
                         required
                         autoFocus
                         className="form-control"
-                        placeholder=""
-                        onChange={() => handleRooted(!isRooted)}
-                        defaultValue={childPlant.rooted}
+                        placeholder="Email"
+                        onChange={handleControlledInputChange}
+                        defaultValue={user.email}
                     />
                 </div>
             </fieldset>
 
-            {/*Button to Save or Add New Child Plant*/}
-            <button
+
+            {/*Button to Save or Add New User*/}
+            {/* <button
                 className="btn btn-primary"
                 disabled={isLoading}
                 onClick={(event) => {
                     event.preventDefault(); // Prevent browser from submitting the form
-                    constructChildPlantObj();
+                    constructUserObj();
                 }}>
-                {childPlantId ? <>Save Child Plant</> : <>Add Child Plant</>}
-            </button>
+                {userId ? <>Save Child Plant</> : <>Add Child Plant</>}
+            </button> */}
 
-            {/*Button to Close or Cancel New Child Plant*/}
+            {/*Button to Close or Cancel New User*/}
             <Button
                 close
                 aria-label="Cancel"

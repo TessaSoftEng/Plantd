@@ -51,7 +51,7 @@ export const ChildPlantCard = ({ childPlant, removeChildPlant }) => {
                     {/*Edit Child Plant Button*/}
                     <Button
                         onClick={() => {
-                            history.push(`/childPlant/edit/${childPlant.id}`);
+                            history.push(`/childPlants/edit/${childPlant.id}`);
                         }}>
                         Edit
                     </Button>

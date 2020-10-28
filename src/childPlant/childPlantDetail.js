@@ -29,6 +29,7 @@ export const ChildPlantDetail = () => {
 			<div className="form__buttons">
 				{childPlant?.user?.id === parseInt(localStorage.getItem("activeUser")) ?
 				<>
+				
 		{/*Remove Child Plant Button*/}		
 				<button onClick={
 					() => {

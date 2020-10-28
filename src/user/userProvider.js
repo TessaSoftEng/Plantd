@@ -5,7 +5,7 @@ export const UserContext = createContext()
 
 /*This component establishes what data can be used.*/
 export const UserProvider = (props) => {
-    const [user, setUser] = useState([])
+    const [users, setUser] = useState([])
     const activeUser = parseInt(localStorage.getItem("activeUser"))
 
 {/*Gets User Plant by Specified User Id */}
@@ -31,14 +31,6 @@ export const UserProvider = (props) => {
         .then(getUser) //This refreshes the list with new child plants//
     }
 
-{/*Deletes or removes Child Plants by Specified Id */}
-    const removeUser = userId => {
-        return fetch(`http://localhost:8088/users/${userId}`, {
-            method: "DELETE"
-        })
-            .then(getUser)
-    }
-
 {/*Edit Child Plants by Specified Id */}
     const updateUser = user => {
         return fetch(`http://localhost:8088/users/${user.id}`, {
@@ -58,7 +50,7 @@ export const UserProvider = (props) => {
     */
     return (
         <UserContext.Provider value={{
-            user, addUser, getUser, getUserById, removeUser, updateUser
+            users, addUser, getUser, getUserById, updateUser
         }}>
             {props.children}
         </UserContext.Provider>

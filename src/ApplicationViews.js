@@ -16,8 +16,9 @@ import { ChildPlantDetail } from "./childPlant/childPlantDetail";
 // User Profile//
 import { UserProvider } from "./user/userProvider";
 import { UserForm } from "./user/userForm";
-// import { UserList } from "./user/userList";
+import { UserList } from "./user/userList";
 import { UserDetail } from "./user/userDetail";
+import { Row, Col } from "reactstrap"
 
 
 export const ApplicationViews = () => {
@@ -27,10 +28,11 @@ export const ApplicationViews = () => {
                 <MomPlantProvider>
                 <ChildPlantProvider>
                 <UserProvider>
-                    <Home />
-                    <MomPlantList/>
-                    <ChildPlantList/>
-                    {/* <UserList/> */}
+                   <Row xs="2">
+                   <Home />
+                       <Col><UserList/></Col>
+                        <Col><MomPlantList/><ChildPlantList/></Col>
+                    </Row>
                 </UserProvider>
                 </ChildPlantProvider>
                 </MomPlantProvider>
