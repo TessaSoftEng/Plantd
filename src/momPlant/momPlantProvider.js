@@ -10,7 +10,7 @@ export const MomPlantProvider = (props) => {
 
 {/*Gets Mom Plant by Specified User Id */}
     const getMomPlant = () => {
-        return fetch(`http://localhost:8088/momPlants?userId=${activeUser}`)
+        return fetch(`http://localhost:8088/momPlants?userId=${activeUser}&_expand=plantType&_expand=potSize`)
             .then(res => res.json())
             .then(setMomPlants)
     }

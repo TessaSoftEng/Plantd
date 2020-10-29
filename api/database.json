@@ -15,22 +15,9 @@
   ],
   "momPlants": [
     {
-      "userId": 1,
-      "plantTypeId": "Monstera Deliciosa",
-      "purchaseDate": "2020-10-29",
-      "amountPaid": "$43",
-      "leafCount": "4",
-      "sold": "",
-      "dateSold": "2020-10-29",
-      "amountSold": "$300",
-      "rooted": "",
-      "id": 2
-    },
-    {
       "id": 5,
-      "userId": 2,
+      "userId": 1,
       "plantTypeId": 1,
-      "momPlantImg": "",
       "purchaseDate": "10-20-2025",
       "amountPaid": "$400000",
       "potSizeId": 4,
@@ -39,6 +26,19 @@
       "dateSold": "",
       "amountSold": "",
       "rooted": true
+    },
+    {
+      "userId": 1,
+      "plantTypeId": 5,
+      "purchaseDate": "2020-10-31",
+      "amountPaid": "$43",
+      "leafCount": "1",
+      "potSizeId": 5,
+      "sold": true,
+      "dateSold": "2020-10-30",
+      "amountSold": "$600",
+      "rooted": true,
+      "id": 6
     }
   ],
   "childPlants": [

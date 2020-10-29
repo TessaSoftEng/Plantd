@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { MomPlantContext } from '../momPlant/momPlantProvider';
 import './momPlant.css';
 import { useHistory, useParams } from 'react-router-dom';
@@ -19,6 +19,9 @@ export const MomPlantForm = () => {
     const [isSold, setIsSold] = useState(momPlant.sold || false);
     const [isRooted, setIsRooted] = useState(momPlant.rooted || false);
 
+    const plantTypeId = useRef(null)
+    const potSizeId = useRef(null)
+
     {
         /*Sets the edited Mom Plant to update with state*/
     }
@@ -31,9 +34,28 @@ export const MomPlantForm = () => {
         setMomPlant(newMomPlant);
     };
 
-    {
+
+    const handleDropDown = (event) => {
+        //When changing a state object or array, always create a copy make changes, and then set state.
+        const newMomPlant = { ...momPlant };
+        //Mom Plant is an object with properties. set the property to the new value
+        newMomPlant[event.target.name] = plantTypeId.current.value;
+        //update state
+        setMomPlant(newMomPlant);
+    };
+
+    const handleDropDownTwo = (event) => {
+        //When changing a state object or array, always create a copy make changes, and then set state.
+        const newMomPlant = { ...momPlant };
+        //Mom Plant is an object with properties. set the property to the new value
+        newMomPlant[event.target.name] = potSizeId.current.value;
+        //update state
+        setMomPlant(newMomPlant);
+    };
+
+
+    
         /*Get Mom Plant by Id*/
-    }
     useEffect(() => {
         if (momPlantId) {
             getMomPlantById(momPlantId).then((momPlant) => {
@@ -80,9 +102,10 @@ export const MomPlantForm = () => {
                 rooted: momPlant.rooted,
             }).then(() => history.push(`/momPlant/detail/${momPlant.id}`));
         } else {
+            console.log(momPlant.plantTypeId, momPlant.potSizeId)
             addMomPlant({
                 userId: parseInt(localStorage.activeUser),
-                plantTypeId: momPlant.plantTypeId,
+                plantTypeId: parseInt(momPlant.plantTypeId),
                 purchaseDate: momPlant.purchaseDate,
                 amountPaid: momPlant.amountPaid,
                 leafCount: momPlant.leafCount,
@@ -120,10 +143,10 @@ export const MomPlantForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="momPlantType">Plant Type: </label>
-                    <select id="dropdown" name="plantTypeId" className="form-control">
+                    <select ref={plantTypeId} id="dropdown" name="plantTypeId" className="form-control" onChange={(event)=>{handleDropDown(event)}}>
                         <option value="0">Select Plant Type</option>
                         {plantTypesArray.map((plantType) => {
-                            return <option value={plantType.id}>{plantType.name}</option>;
+                            return <option key={plantType.id} value={plantType.id}>{plantType.name}</option>;
                         })}
                     </select>
                 </div>
@@ -187,10 +210,10 @@ export const MomPlantForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="momPlantLeafCount">Pot Size: </label>
-                    <select id="potSize-dropdown" name="potSize" className="form-control">
+                    <select ref={potSizeId} id="potSize-dropdown" name="potSizeId" className="form-control" onChange={(event)=>{handleDropDownTwo(event)}}>
                         <option value="">Select Pot Size</option>
                         {potSizeArray.map((potSizeItem) => {
-                            return <option value={potSizeItem.id}>{`${potSizeItem.sizeInches} inches`}</option>;
+                            return <option key={potSizeItem.id} value={potSizeItem.id}>{`${potSizeItem.sizeInches} inches`}</option>;
                         })}
                     </select>
                 </div>

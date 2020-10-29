@@ -21,7 +21,7 @@ export const MomPlantCard = ({ momPlant, removeMomPlant }) => {
                     <Container>
                         {/* <Link className="text-light" to={`/momPlant/detail/${momPlant.id}`}> */}
                         <Col>
-                            <CardTitle className="momPlantName">{momPlant.plantTypeId}</CardTitle>
+                            <CardTitle className="momPlantName">{momPlant.plantType.name}</CardTitle>
                         </Col>
                         {/* </Link> */}
                     </Container>
@@ -32,7 +32,7 @@ export const MomPlantCard = ({ momPlant, removeMomPlant }) => {
                     <ListGroup>
                         <ListGroupItem>Purchase Date: {momPlant.purchaseDate}</ListGroupItem>
                         <ListGroupItem>Amount Paid: {momPlant.amountPaid}</ListGroupItem>
-                        <ListGroupItem>Pot Size: {momPlant.potSizeId}</ListGroupItem>
+                        <ListGroupItem>Pot Size: {momPlant.potSize.sizeInches}</ListGroupItem>
                         <ListGroupItem>Leaf Count: {momPlant.leafCount}</ListGroupItem>
                         <ListGroupItem>Sold: {momPlant.sold}</ListGroupItem>
                         <ListGroupItem>Date Sold: {momPlant.dateSold}</ListGroupItem>
